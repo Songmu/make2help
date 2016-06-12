@@ -10,7 +10,7 @@ import (
 	"github.com/mattn/go-isatty"
 )
 
-const version = "0.0.1"
+const version = "0.0.2"
 
 const (
 	exitCodeOK = iota

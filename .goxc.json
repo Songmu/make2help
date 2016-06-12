@@ -8,6 +8,6 @@
 		"deb"
 	],
 	"Arch": "amd64",
-	"Os": "linux darwin freebsd",
+	"Os": "linux darwin freebsd windows",
 	"ConfigVersion": "0.9"
 }
