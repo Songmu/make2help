@@ -1,22 +1,37 @@
-test: deps
-	go test
+.DEFAULT_GOAL := help
 
+## Run tests
+test: deps
+	go test ./...
+
+## Install dependencies
 deps:
 	go get -d -v -t ./...
+
+## Install dependencies
+dev-deps: deps
 	go get github.com/golang/lint/golint
 	go get github.com/mattn/goveralls
+	go get github.com/motemen/gobump/cmd/gobump
+	go get github.com/Songmu/ghch/cmd/ghch
+	go get github.com/laher/goxc
+	go get github.com/tcnksm/ghr
 
-LINT_RET = .golint.txt
-lint: deps
+## Lint
+lint: dev-deps
 	go vet ./...
-	rm -f $(LINT_RET)
-	golint ./... | tee $(LINT_RET)
-	test ! -s $(LINT_RET)
+	golint -set_exit_status ./...
 
-cover: deps
+## Take coverage
+cover: dev-deps
 	goveralls
 
+## Release the binaries
 release:
 	_tools/releng
 
-.PHONY: test deps lint cover release
+## Show help
+help:
+	@make2help $(MAKEFILE_LIST)
+
+.PHONY: test dev-deps deps lint cover release help
