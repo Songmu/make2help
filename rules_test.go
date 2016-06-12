@@ -11,10 +11,8 @@ func TestString(t *testing.T) {
 	}
 
 	result := r.string(false, false)
-	expect := `Available rules:
-
-task1              task1 desu
-task3              task3 desu
+	expect := `task1:             task1 desu
+task3:             task3 desu
                    multi line
 `
 

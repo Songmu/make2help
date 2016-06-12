@@ -30,15 +30,13 @@ You can also `go get`.
 ## Synopsis
 
     % make2help
-    Available rules:
-
-    cover              Take coverage
-    deps               Install dependencies
-    dev-deps           Install dependencies
-    help               Show help
-    lint               Lint
-    release            Release the binaries
-    test               Run tests
+    cover:             Take coverage
+    deps:              Install dependencies
+    dev-deps:          Install dependencies
+    help:              Show help
+    lint:              Lint
+    release:           Release the binaries
+    test:              Run tests
 
 ## Options
 
@@ -71,11 +69,9 @@ help:
 
 ```Shell
 % make
-Available rules:
-
-deps               Install dependencies
-help               Show help
-test               Run tests
+deps:              Install dependencies
+help:              Show help
+test:              Run tests
 ```
 
 ## Author
