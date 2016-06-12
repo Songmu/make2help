@@ -9,7 +9,10 @@ import (
 	"github.com/pkg/errors"
 )
 
-var ruleReg = regexp.MustCompile(`^(\S+):`)
+var (
+	ruleReg          = regexp.MustCompile(`^(\S+):`)
+	builtinTargetReg = regexp.MustCompile(`^\.[A-Z_]{5,}`) // ex. ".PHONY"
+)
 
 func scan(filepath string) (rules, error) {
 	f, err := os.Open(filepath)
@@ -28,7 +31,9 @@ func scan(filepath string) (rules, error) {
 		}
 
 		if matches := ruleReg.FindStringSubmatch(line); len(matches) > 1 {
-			r[matches[1]] = buf
+			if !builtinTargetReg.MatchString(matches[1]) {
+				r[matches[1]] = buf
+			}
 		}
 		if len(buf) > 0 {
 			buf = []string{}
