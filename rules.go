@@ -19,13 +19,6 @@ func (r rules) merge(r2 rules) rules {
 
 func (r rules) string(all, colorful bool) string {
 	var buf bytes.Buffer
-	header := "Available rules:"
-	if colorful {
-		header = "\033[1m" + header + "\033[0m"
-	}
-	buf.WriteString(header)
-	buf.WriteString("\n\n")
-
 	indent, tasks := r.indentAndRules(all)
 	colorfunc := ansi.ColorFunc("cyan")
 	for _, task := range tasks {
@@ -35,7 +28,8 @@ func (r rules) string(all, colorful bool) string {
 			msg = colorfunc(msg)
 		}
 		buf.WriteString(msg)
-		restIndent := indent - len(task)
+		buf.WriteString(":")
+		restIndent := indent - len(task) - 1
 		if len(helplines) < 1 {
 			buf.WriteString("\n")
 		}
@@ -54,8 +48,9 @@ func (r rules) indentAndRules(all bool) (int, []string) {
 	var tasks []string
 	for k, v := range r {
 		if all || len(v) > 0 {
-			if len(k)+1 > indent {
-				indent = len(k) + 1
+			// delimiter(Kolon) and space = 2 width
+			if len(k)+2 > indent {
+				indent = len(k) + 2
 			}
 			tasks = append(tasks, k)
 		}
