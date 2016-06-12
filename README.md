@@ -19,6 +19,12 @@ double hash (`## `) just before a rule is written as document of the rule.
 
 ## Installation
 
+Binaries are available.
+
+https://github.com/Songmu/make2help/releases
+
+You can also `go get`.
+
     % go get github.com/Songmu/make2help/cmd/make2help
 
 ## Synopsis
@@ -43,31 +49,34 @@ double hash (`## `) just before a rule is written as document of the rule.
 ## Example
 
 With defining `help` target in Makefile and setting it to `.DEFAULT_GOAL`, you can see
-help messages only command `make`.
+help messages just type `make`.
 
-    % cat Makefile
-    .DEFAULT_GOAL := help
-    
-    ## Run tests
-    test: deps
-        go test ./...
-    
-    ## Install dependencies
-    deps:
-        go get -d -v -t ./...
-    
-    ## Show help
-    help:
-        @make2help $(MAKEFILE_LIST)
-    
-    .PHONY: test deps help
+```Makefile
+.DEFAULT_GOAL := help
 
-    % make
-    Available rules:
+## Run tests
+test: deps
+    go test ./...
 
-    deps               Install dependencies
-    help               Show help
-    test               Run tests
+## Install dependencies
+deps:
+    go get -d -v -t ./...
+
+## Show help
+help:
+    @make2help $(MAKEFILE_LIST)
+
+.PHONY: test deps help
+```
+
+```Shell
+% make
+Available rules:
+
+deps               Install dependencies
+help               Show help
+test               Run tests
+```
 
 ## Author
 
