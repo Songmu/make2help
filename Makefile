@@ -26,6 +26,9 @@ lint: dev-deps
 cover: dev-deps
 	goveralls
 
+bin/%: cmd/%/main.go
+	go build -ldflags "$(LDFLAGS)" -o $@ $<
+
 ## Release the binaries
 release:
 	_tools/releng
