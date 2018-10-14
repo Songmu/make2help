@@ -10,7 +10,7 @@ deps:
 
 ## Install dependencies
 dev-deps: deps
-	go get github.com/golang/lint/golint
+	go get golang.org/x/lint/golint
 	go get github.com/mattn/goveralls
 	go get github.com/motemen/gobump/cmd/gobump
 	go get github.com/Songmu/ghch/cmd/ghch
