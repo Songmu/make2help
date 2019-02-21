@@ -2,10 +2,10 @@ package make2help
 
 import (
 	"bytes"
+	"sort"
 	"strings"
 
 	"github.com/mgutz/ansi"
-	"github.com/patrickmn/sortutil"
 )
 
 type rules map[string][]string
@@ -55,6 +55,8 @@ func (r rules) indentAndRules(all bool) (int, []string) {
 			tasks = append(tasks, k)
 		}
 	}
-	sortutil.CiAsc(tasks)
+	sort.Slice(tasks, func(i, j int) bool {
+		return strings.ToLower(tasks[i]) < strings.ToLower(tasks[j])
+	})
 	return indent, tasks
 }
