@@ -50,7 +50,7 @@ bump: devel-deps
 ## Cross build
 .PHONY: crossbuild
 crossbuild:
-	goxz -pv=v$(VESION) -build-ldflags=$(BUILD_LDFLAGS) \
+	goxz -pv=v$(VERSION) -build-ldflags=$(BUILD_LDFLAGS) \
 	  -os=linux,darwin,freebsd,windows -d=./dist/v$(VERSION) ./cmd/*
 
 ## Upload
