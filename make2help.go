@@ -31,8 +31,12 @@ func scan(filepath string) (rules, error) {
 		}
 
 		if matches := ruleReg.FindStringSubmatch(line); len(matches) > 1 {
-			if !builtinTargetReg.MatchString(matches[1]) {
-				r[matches[1]] = buf
+			target := matches[1]
+			if target == ".PHONY" {
+				continue
+			}
+			if !builtinTargetReg.MatchString(target) {
+				r[target] = buf
 			}
 		}
 		if len(buf) > 0 {

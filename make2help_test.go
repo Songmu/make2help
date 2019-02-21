@@ -16,10 +16,11 @@ func TestScan(t *testing.T) {
 		"task1": []string{"task1 desu"},
 		"task2": []string{},
 		"task3": []string{"task3 desu", "multi line"},
+		"task4": []string{"task4 desuyo"},
 	}
 
 	if !reflect.DeepEqual(r, expect) {
-		t.Errorf("somthing went wrong: %#v", r)
+		t.Errorf("somthing went wrong\n   got: %#v\nexpect: %#v", r, expect)
 	}
 }
 
