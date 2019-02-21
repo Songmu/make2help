@@ -6,7 +6,7 @@ import (
 	"regexp"
 	"strings"
 
-	"github.com/pkg/errors"
+	"golang.org/x/xerrors"
 )
 
 var (
@@ -17,7 +17,7 @@ var (
 func scan(filepath string) (rules, error) {
 	f, err := os.Open(filepath)
 	if err != nil {
-		return nil, errors.Wrap(err, "failed to open file")
+		return nil, xerrors.Errorf("failed to open file: %w", err)
 	}
 	r := rules{}
 	buf := []string{}
@@ -44,7 +44,7 @@ func scan(filepath string) (rules, error) {
 		}
 	}
 	if err = sc.Err(); err != nil {
-		return nil, errors.Wrap(err, "scan failed")
+		return nil, xerrors.Errorf("scan failed: %w", err)
 	}
 	return r, nil
 }
