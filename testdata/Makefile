@@ -9,3 +9,8 @@ task3:
 ## task1 desu
 task1:
 	@echo task1
+
+## task4 desuyo
+.PHONY: task4
+task4:
+	@echo task4
