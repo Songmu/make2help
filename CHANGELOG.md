@@ -1,6 +1,6 @@
 # Changelog
 
-## [0.1.0](https://github.com/Songmu/make2help/compare/v0.0.2...0.1.0) (2019-02-21)
+## [v0.1.0](https://github.com/Songmu/make2help/compare/v0.0.2...v0.1.0) (2019-02-21)
 
 * Introduce go modules and update releng tools [#5](https://github.com/Songmu/make2help/pull/5) ([Songmu](https://github.com/Songmu))
 * use standard sort package and drop patrickmn/sortutil [#4](https://github.com/Songmu/make2help/pull/4) ([Songmu](https://github.com/Songmu))
