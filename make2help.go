@@ -9,9 +9,43 @@ import (
 	"golang.org/x/xerrors"
 )
 
+const (
+	builtInTargetPhony              = ".PHONY"
+	builtInTargetSuffixes           = ".SUFFIXES"
+	builtInTargetDefault            = ".DEFAULT"
+	builtInTargetPrecious           = ".PRECIOUS"
+	builtInTargetIntermediate       = ".INTERMEDIATE"
+	builtInTargetSecondary          = ".SECONDARY"
+	builtInTargetSecondExpansion    = ".SECONDEXPANSION"
+	builtInTargetDeleteOnError      = ".DELETE_ON_ERROR"
+	builtInTargetIgnore             = ".IGNORE"
+	builtInTargetLowResolutionTime  = ".LOW_RESOLUTION_TIME"
+	builtInTargetSilent             = ".SILENT"
+	builtInTargetExportAllVariables = ".EXPORT_ALL_VARIABLES"
+	builtInTargetNotParallel        = ".NOTPARALLEL"
+	builtInTargetOneShell           = ".ONESHELL"
+	builtInTargetPosix              = ".POSIX"
+)
+
 var (
 	ruleReg          = regexp.MustCompile(`^(\S+):`)
-	builtinTargetReg = regexp.MustCompile(`^\.[A-Z_]{5,}`) // ex. ".PHONY"
+	isBuiltInTargets = map[string]bool{
+		builtInTargetPhony:              true,
+		builtInTargetSuffixes:           true,
+		builtInTargetDefault:            true,
+		builtInTargetPrecious:           true,
+		builtInTargetIntermediate:       true,
+		builtInTargetSecondary:          true,
+		builtInTargetSecondExpansion:    true,
+		builtInTargetDeleteOnError:      true,
+		builtInTargetIgnore:             true,
+		builtInTargetLowResolutionTime:  true,
+		builtInTargetSilent:             true,
+		builtInTargetExportAllVariables: true,
+		builtInTargetNotParallel:        true,
+		builtInTargetOneShell:           true,
+		builtInTargetPosix:              true,
+	}
 )
 
 func scan(filepath string) (rules, error) {
@@ -32,12 +66,10 @@ func scan(filepath string) (rules, error) {
 
 		if matches := ruleReg.FindStringSubmatch(line); len(matches) > 1 {
 			target := matches[1]
-			if target == ".PHONY" {
+			if isBuiltInTargets[target] {
 				continue
 			}
-			if !builtinTargetReg.MatchString(target) {
-				r[target] = buf
-			}
+			r[target] = buf
 		}
 		if len(buf) > 0 {
 			buf = []string{}
