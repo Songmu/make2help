@@ -1,5 +1,10 @@
 # Changelog
 
+## [v0.1.1](https://github.com/Songmu/make2help/compare/v0.1.0...v0.1.1) (2019-08-19)
+
+* update deps [#7](https://github.com/Songmu/make2help/pull/7) ([Songmu](https://github.com/Songmu))
+* fix built in target validation logic [#6](https://github.com/Songmu/make2help/pull/6) ([shumon84](https://github.com/shumon84))
+
 ## [v0.1.0](https://github.com/Songmu/make2help/compare/v0.0.2...v0.1.0) (2019-02-21)
 
 * Introduce go modules and update releng tools [#5](https://github.com/Songmu/make2help/pull/5) ([Songmu](https://github.com/Songmu))
