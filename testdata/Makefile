@@ -14,3 +14,8 @@ task1:
 .PHONY: task4
 task4:
 	@echo task4
+
+## task5 no phony
+.DEFAULT: task5
+task5:
+	@echo task5
