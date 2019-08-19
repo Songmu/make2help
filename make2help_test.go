@@ -17,6 +17,7 @@ func TestScan(t *testing.T) {
 		"task2": []string{},
 		"task3": []string{"task3 desu", "multi line"},
 		"task4": []string{"task4 desuyo"},
+		"task5": []string{"task5 no phony"},
 	}
 
 	if !reflect.DeepEqual(r, expect) {
