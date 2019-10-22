@@ -28,7 +28,7 @@ const (
 )
 
 var (
-	ruleReg          = regexp.MustCompile(`^(\S+):`)
+	ruleReg          = regexp.MustCompile(`^(\S+)\s*:`)
 	isBuiltInTargets = map[string]bool{
 		builtInTargetPhony:              true,
 		builtInTargetSuffixes:           true,
