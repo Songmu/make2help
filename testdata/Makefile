@@ -19,3 +19,7 @@ task4:
 .DEFAULT: task5
 task5:
 	@echo task5
+
+## task6 suffix whitespace
+task6 	:
+	@echo task6
