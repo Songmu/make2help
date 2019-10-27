@@ -1,5 +1,11 @@
 # Changelog
 
+## [v0.2.0](https://github.com/Songmu/make2help/compare/v0.1.1...v0.2.0) (2019-10-27)
+
+* introduce GitHub Action and update deps [#10](https://github.com/Songmu/make2help/pull/10) ([Songmu](https://github.com/Songmu))
+* Eliminate pattern rules [#9](https://github.com/Songmu/make2help/pull/9) ([shumon84](https://github.com/shumon84))
+* Support targets have whitespace suffix [#8](https://github.com/Songmu/make2help/pull/8) ([shumon84](https://github.com/shumon84))
+
 ## [v0.1.1](https://github.com/Songmu/make2help/compare/v0.1.0...v0.1.1) (2019-08-19)
 
 * update deps [#7](https://github.com/Songmu/make2help/pull/7) ([Songmu](https://github.com/Songmu))
