@@ -21,9 +21,10 @@ test:
 .PHONY: devel-deps
 devel-deps:
 	GO111MODULE=off go get ${u} \
-	  golang.org/x/lint/golint            \
-	  github.com/Songmu/godzil/cmd/godzil \
-	  github.com/Songmu/goxz/cmd/goxz     \
+	  golang.org/x/lint/golint                  \
+	  github.com/Songmu/godzil/cmd/godzil       \
+	  github.com/Songmu/goxz/cmd/goxz           \
+	  github.com/Songmu/gocredits/cmd/gocredits \
 	  github.com/tcnksm/ghr
 
 ## Lint
@@ -39,9 +40,12 @@ bin/%: cmd/%/main.go
 bump: devel-deps
 	godzil release
 
+CREDITS: deps devel-deps go.sum
+	gocredits -w
+
 ## Cross build
 .PHONY: crossbuild
-crossbuild:
+crossbuild: CREDITS
 	goxz -pv=v$(VERSION) -build-ldflags=$(BUILD_LDFLAGS) \
 	  -os=linux,darwin,freebsd,windows -d=./dist/v$(VERSION) ./cmd/*
 
