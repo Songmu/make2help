@@ -23,3 +23,7 @@ task5:
 ## task6 suffix whitespace
 task6 	:
 	@echo task6
+
+## task7 pattern rule
+task7%:
+	@echo task7
