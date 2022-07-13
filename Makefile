@@ -27,8 +27,8 @@ bin/%: cmd/%/main.go
 	go build -ldflags "$(LDFLAGS)" -o $@ $<
 
 ## Bump version
-.PHONY: bump
-bump: devel-deps
+.PHONY: release
+release: devel-deps
 	godzil release
 
 CREDITS: deps devel-deps go.sum
@@ -43,11 +43,7 @@ crossbuild: CREDITS
 ## Upload
 .PHONY: upload
 upload:
-	ghr v$(VERSION) dist/v$(VERSION)
-
-## Release the binaries
-.PHONY: release
-release: crossbuild upload
+	ghr -body="$$(godzil changelog --latest -F markdown)" v$(VERSION) dist/v$(VERSION)
 
 ## Show help
 .PHONY: help
