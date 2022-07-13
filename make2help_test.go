@@ -13,12 +13,13 @@ func TestScan(t *testing.T) {
 	}
 
 	expect := rules{
-		"task1": []string{"task1 desu"},
-		"task2": []string{},
-		"task3": []string{"task3 desu", "multi line"},
-		"task4": []string{"task4 desuyo"},
-		"task5": []string{"task5 no phony"},
-		"task6": []string{"task6 suffix whitespace"},
+		"task1":  []string{"task1 desu"},
+		"task2":  []string{},
+		"task3":  []string{"task3 desu", "multi line"},
+		"task4":  []string{"task4 desuyo"},
+		"task5":  []string{"task5 no phony"},
+		"task6":  []string{"task6 suffix whitespace"},
+		"task7%": []string{"task7 pattern rule"},
 	}
 
 	if !reflect.DeepEqual(r, expect) {

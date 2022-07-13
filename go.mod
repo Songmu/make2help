@@ -1,11 +1,12 @@
 module github.com/Songmu/make2help
 
-go 1.12
+go 1.18
 
 require (
-	github.com/mattn/go-colorable v0.1.4
-	github.com/mattn/go-isatty v0.0.10
-	github.com/mgutz/ansi v0.0.0-20170206155736-9520e82c474b
-	golang.org/x/sys v0.0.0-20191026070338-33540a1f6037 // indirect
-	golang.org/x/xerrors v0.0.0-20191011141410-1b5146add898
+	github.com/mattn/go-colorable v0.1.12
+	github.com/mattn/go-isatty v0.0.14
+	github.com/mgutz/ansi v0.0.0-20200706080929-d51e80ef957d
+	golang.org/x/xerrors v0.0.0-20220609144429-65e65417b02f
 )
+
+require golang.org/x/sys v0.0.0-20220712014510-0a85c31ab51e // indirect
