@@ -1,14 +1,13 @@
 make2help
 =======
 
-[![Build Status](https://travis-ci.org/Songmu/make2help.png?branch=master)][travis]
-[![MIT License](http://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)][license]
-[![GoDoc](https://godoc.org/github.com/Songmu/make2help?status.svg)](godoc)
+[![Test Status](https://github.com/Songmu/make2help/workflows/test/badge.svg?branch=main)][actions]
+[![MIT License](https://img.shields.io/github/license/Songmu/make2help)][license]
+[![PkgGoDev](https://pkg.go.dev/badge/github.com/Songmu/make2help)][PkgGoDev]
 
-[travis]: https://travis-ci.org/Songmu/make2help
-[coveralls]: https://coveralls.io/r/Songmu/make2help?branch=master
+[actions]: https://github.com/Songmu/make2help/actions?workflow=test
 [license]: https://github.com/Songmu/make2help/blob/master/LICENSE
-[godoc]: https://godoc.org/github.com/Songmu/make2help
+[PkgGoDev]: https://pkg.go.dev/github.com/Songmu/make2help
 
 ## Description
 
@@ -23,9 +22,9 @@ Binaries are available.
 
 https://github.com/Songmu/make2help/releases
 
-You can also `go get`.
+You can also `go install`.
 
-    % go get github.com/Songmu/make2help/cmd/make2help
+    % go install github.com/Songmu/make2help/cmd/make2help@latest
 
 ## Synopsis
 
@@ -58,7 +57,7 @@ test: deps
 
 ## Install dependencies
 deps:
-    go get -d -v -t ./...
+    go get -d -v ./...
 
 ## Show help
 help:
