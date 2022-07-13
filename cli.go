@@ -10,7 +10,7 @@ import (
 	"github.com/mattn/go-isatty"
 )
 
-const version = "0.2.0"
+const version = "0.2.1"
 
 var revision = "HEAD"
 

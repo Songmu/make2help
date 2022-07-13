@@ -1,5 +1,10 @@
 # Changelog
 
+## [v0.2.1](https://github.com/Songmu/make2help/compare/v0.2.0...v0.2.1) (2022-07-13)
+
+* maintenance [#15](https://github.com/Songmu/make2help/pull/15) ([Songmu](https://github.com/Songmu))
+* Capture targets with % [#14](https://github.com/Songmu/make2help/pull/14) ([shackra](https://github.com/shackra))
+
 ## [v0.2.0](https://github.com/Songmu/make2help/compare/v0.1.1...v0.2.0) (2019-10-27)
 
 * introduce GitHub Action and update deps [#10](https://github.com/Songmu/make2help/pull/10) ([Songmu](https://github.com/Songmu))
